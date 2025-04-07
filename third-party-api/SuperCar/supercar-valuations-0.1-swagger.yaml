@@ -1,0 +1,61 @@
+openapi: 3.0.1
+info:
+  title: SuperCar Valuations Service 🏎️
+  description: The one stop shop for getting valuations for a car by Vehicle Registration Mark (VRM))
+  version: '0.1'
+servers:
+  - url: https://supercar-valuations.com
+paths:
+  /valuations/{vrm}:
+    get:
+      description: Gets valuations for a car by Vehicle Registration Mark (VRM) and mileage
+      parameters:
+        - in: path
+          name: vrm
+          schema:
+            type: string
+          required: true
+          example: AA99BCD
+          description: The Vehicle Registration Mark
+        - name: mileage
+          in: query
+          schema:
+            type: string
+          example: '10000'
+          description: The number of miles the car has done, if not provided this is estimated.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/definitions/ValuationResponse'
+      servers:
+        - url: https://run.mocky.io/v3/9245229e-5c57-44e1-964b-36c7fb29168b
+definitions:
+  ValuationResponse:
+    properties:
+      vin: 
+        type: string
+        example: 2HSCNAPRX7C385251
+      registrationDate: 
+        type: string
+        example: 2012-06-14T00:00:00.0000000
+      plate: 
+        type: object
+        properties: 
+          year: 
+            type: number
+            example: 2012
+          month: 
+            type: number
+            example: 4
+      valuation: 
+        type: object
+        properties: 
+          lowerValue: 
+            type: number
+            example: 22350
+          upperValue: 
+            type: number
+            example: 24750

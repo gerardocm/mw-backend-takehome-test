@@ -1,0 +1,53 @@
+{
+  "name": "mw-backend-test",
+  "main": "dist/server.mjs",
+  "scripts": {
+    "dev": "NODE_ENV=dev vite",
+    "build": "vite build --outDir dist --ssr src/server.ts",
+    "format": "prettier --config .prettierrc \"src/**/*.{js,json,ts,css,scss,vue,html,md}\" --write",
+    "lint": "eslint . --fix",
+    "start": "NODE_ENV=prod node dist/server.mjs",
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "third-party-api:serve-docs": "node third-party-api/docs.js"
+  },
+  "dependencies": {
+    "axios": "1.6.8",
+    "dotenv": "16.4.5",
+    "fast-xml-parser": "^5.2.0",
+    "fastify": "4.26.2",
+    "pino": "9.0.0",
+    "pino-pretty": "11.0.0",
+    "reflect-metadata": "0.2.2",
+    "sqlite3": "5.1.7",
+    "typeorm": "0.3.20",
+    "typeorm-fastify-plugin": "1.0.5",
+    "uuid": "9.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.1.1",
+    "@fastify/swagger": "^8.14.0",
+    "@fastify/swagger-ui": "^3.0.0",
+    "@swc/core": "1.5.0",
+    "@types/node": "20.12.7",
+    "@vitest/coverage-c8": "0.33.0",
+    "@vitest/coverage-v8": "1.5.2",
+    "@vitest/ui": "1.5.2",
+    "c8": "9.1.0",
+    "eslint": "9.1.1",
+    "jsdom": "24.0.0",
+    "prettier": "3.2.5",
+    "typescript": "5.4.5",
+    "typescript-eslint": "7.7.1",
+    "unplugin-swc": "1.4.5",
+    "vite": "5.2.10",
+    "vite-plugin-node": "3.1.0",
+    "vitest": "1.5.2"
+  },
+  "overrides": {
+    "eslint": "9.1.1",
+    "vite": "5.2.10",
+    "vitest": "1.5.2"
+  }
+}

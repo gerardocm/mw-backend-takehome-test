@@ -1,0 +1,51 @@
+openapi: 3.0.1
+info:
+  title: Premium Car Valuations 💎
+  description: The best car valuation service out there!
+  version: '0.1'
+servers:
+  - url: https://premium-car-valuations.com
+paths:
+  /valueCar:
+    get:
+      description: Gets valuations for a car by Vehicle Registration Mark (VRM)
+      parameters:
+        - name: vrm
+          in: query
+          schema:
+            type: string
+          example: AA69BCD
+          description: The Vehicle Registration Mark
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml; charset=UTF-8:
+              schema:
+                $ref: '#/definitions/Response'
+      servers:
+        - url: https://run.mocky.io/v3/0dfda26a-3a5a-43e5-b68c-51f148eda473
+definitions:
+  Response:
+    properties:
+      RegistrationDate: 
+        type: string
+        example: 2012-06-14T00:00:00.0000000
+      RegistrationYear: 
+        type: number
+        example: 2001
+      RegistrationMonth: 
+        type: number
+        example: 10
+      ValuationPrivateSaleMinimum: 
+        type: number
+        example: 11500
+      ValuationPrivateSaleMaximum: 
+        type: number
+        example: 12750
+      ValuationDealershipMinimum: 
+        type: number
+        example: 9500
+      ValuationDealershipMaximum: 
+        type: number
+        example: 10275
